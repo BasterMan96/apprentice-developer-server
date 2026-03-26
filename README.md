@@ -1,42 +1,32 @@
-# Apprentice — Bytik Backend
+# Байтик — Backend (API Server)
 
-Spring Boot 3.4 backend for the Bytik hackathon project.
+Серверная часть платформы для изучения программирования.
 
-## Tech stack
+## Стек
 
-- Kotlin 2.1 / JVM 21
-- Spring Boot 3.4
-- Spring Data JPA + PostgreSQL
-- Spring Security + JWT (jjwt 0.12)
-- Gradle 8.12 with Kotlin DSL and version catalog
+- Kotlin 2.1.0 / JVM 17
+- Spring Boot 3.4.4
+- Spring Security + JWT (jjwt 0.12.6)
+- Spring Data JPA + PostgreSQL 16
+- Gradle 8.12, Kotlin DSL
+- Python 3 (для выполнения пользовательского кода)
 
-## Prerequisites
+## Запуск
 
-- JDK 21
-- PostgreSQL running locally (or via Docker)
+Смотри инструкцию в корневом README проекта.
 
-## Local setup
+## Переменные окружения
 
-1. Start PostgreSQL and create the database:
+| Переменная | Значение по умолчанию |
+|---|---|
+| SPRING_DATASOURCE_URL | jdbc:postgresql://localhost:5432/bytik |
+| SPRING_DATASOURCE_USERNAME | bytik |
+| SPRING_DATASOURCE_PASSWORD | bytik_secret |
+| JWT_SECRET | super-secret-jwt-key-for-bytik-2026-hackathon |
 
-```sql
-CREATE USER bytik WITH PASSWORD 'bytik_secret';
-CREATE DATABASE bytik OWNER bytik;
-```
+## Тестовые аккаунты (создаются автоматически)
 
-2. Run the application:
-
-```bash
-./gradlew bootRun
-```
-
-The server starts on port `8080`.
-
-## Environment variables
-
-| Variable                   | Default                                       |
-|----------------------------|-----------------------------------------------|
-| SPRING_DATASOURCE_URL      | jdbc:postgresql://localhost:5432/bytik        |
-| SPRING_DATASOURCE_USERNAME | bytik                                         |
-| SPRING_DATASOURCE_PASSWORD | bytik_secret                                  |
-| JWT_SECRET                 | super-secret-jwt-key-for-bytik-2026-hackathon |
+| Логин | Пароль | Роль |
+|---|---|---|
+| student | student123 | Ученик (с прогрессом) |
+| parent | parent123 | Родитель |
