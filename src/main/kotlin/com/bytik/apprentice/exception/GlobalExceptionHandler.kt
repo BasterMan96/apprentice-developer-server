@@ -11,10 +11,10 @@ class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException::class)
     fun handleValidation(ex: MethodArgumentNotValidException): ResponseEntity<Map<String, Any>> {
-        val errors = ex.bindingResult.fieldErrors.associate { it.field to (it.defaultMessage ?: "Invalid value") }
+        val errors = ex.bindingResult.fieldErrors.associate { it.field to (it.defaultMessage ?: "Некорректное значение") }
         val body = mapOf(
             "status" to HttpStatus.BAD_REQUEST.value(),
-            "error" to "Validation failed",
+            "error" to "Ошибка валидации",
             "fields" to errors
         )
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(body)
@@ -24,7 +24,7 @@ class GlobalExceptionHandler {
     fun handleApi(ex: ApiException): ResponseEntity<Map<String, Any>> {
         val body = mapOf(
             "status" to ex.status.value(),
-            "error" to (ex.message ?: "Error")
+            "error" to (ex.message ?: "Ошибка")
         )
         return ResponseEntity.status(ex.status).body(body)
     }
@@ -33,7 +33,7 @@ class GlobalExceptionHandler {
     fun handleGeneral(ex: Exception): ResponseEntity<Map<String, Any>> {
         val body = mapOf(
             "status" to HttpStatus.INTERNAL_SERVER_ERROR.value(),
-            "error" to "Internal server error"
+            "error" to "Внутренняя ошибка сервера"
         )
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(body)
     }

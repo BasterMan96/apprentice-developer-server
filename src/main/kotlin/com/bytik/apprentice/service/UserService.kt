@@ -37,7 +37,7 @@ class UserService(
     @Transactional(readOnly = true)
     fun getProfile(userId: Long): UserProfileDto {
         val user = userRepository.findById(userId).orElseThrow {
-            ApiException("User not found", HttpStatus.NOT_FOUND)
+            ApiException("Пользователь не найден", HttpStatus.NOT_FOUND)
         }
 
         val lessonsCompleted = userProgressRepository.countByUserIdAndStatus(userId, ProgressStatus.COMPLETED)

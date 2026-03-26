@@ -29,14 +29,14 @@ class ParentService(
     @Transactional
     fun linkChild(parentId: Long, request: LinkChildRequest): UserDto {
         val parent = userRepository.findById(parentId).orElseThrow {
-            ApiException("Parent not found", HttpStatus.NOT_FOUND)
+            ApiException("Родитель не найден", HttpStatus.NOT_FOUND)
         }
 
         val child = userRepository.findByLogin(request.childLogin)
-            ?: throw ApiException("Child account not found", HttpStatus.NOT_FOUND)
+            ?: throw ApiException("Аккаунт ребёнка не найден", HttpStatus.NOT_FOUND)
 
         if (child.role != UserRole.STUDENT) {
-            throw ApiException("Account '${request.childLogin}' is not a student", HttpStatus.BAD_REQUEST)
+            throw ApiException("Аккаунт '${request.childLogin}' не является учеником", HttpStatus.BAD_REQUEST)
         }
 
         child.parent = parent

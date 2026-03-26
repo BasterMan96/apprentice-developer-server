@@ -22,7 +22,7 @@ class AuthService(
     @Transactional
     fun register(request: RegisterRequest): AuthResponse {
         if (userRepository.findByLogin(request.login) != null) {
-            throw ApiException("Login '${request.login}' is already taken", HttpStatus.CONFLICT)
+            throw ApiException("Логин '${request.login}' уже занят", HttpStatus.CONFLICT)
         }
 
         val user = User(
@@ -41,10 +41,10 @@ class AuthService(
     @Transactional(readOnly = true)
     fun login(request: LoginRequest): AuthResponse {
         val user = userRepository.findByLogin(request.login)
-            ?: throw ApiException("Invalid login or password", HttpStatus.UNAUTHORIZED)
+            ?: throw ApiException("Неверный логин или пароль", HttpStatus.UNAUTHORIZED)
 
         if (!passwordEncoder.matches(request.password, user.passwordHash)) {
-            throw ApiException("Invalid login or password", HttpStatus.UNAUTHORIZED)
+            throw ApiException("Неверный логин или пароль", HttpStatus.UNAUTHORIZED)
         }
 
         val token = jwtService.generateToken(user.id, user.login)

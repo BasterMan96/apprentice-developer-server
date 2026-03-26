@@ -42,7 +42,7 @@ class LessonService(
     @Transactional(readOnly = true)
     fun getLesson(lessonId: Long, userId: Long): LessonDetailDto {
         val lesson = lessonRepository.findById(lessonId).orElseThrow {
-            ApiException("Lesson not found", HttpStatus.NOT_FOUND)
+            ApiException("Урок не найден", HttpStatus.NOT_FOUND)
         }
 
         val questions = quizQuestionRepository.findByLessonIdOrderByOrderIndex(lessonId).map { question ->
@@ -95,10 +95,10 @@ class LessonService(
     @Transactional
     fun completeLesson(lessonId: Long, userId: Long, request: LessonCompleteRequest): LessonCompleteResponse {
         val lesson = lessonRepository.findById(lessonId).orElseThrow {
-            ApiException("Lesson not found", HttpStatus.NOT_FOUND)
+            ApiException("Урок не найден", HttpStatus.NOT_FOUND)
         }
         val user = userRepository.findById(userId).orElseThrow {
-            ApiException("User not found", HttpStatus.NOT_FOUND)
+            ApiException("Пользователь не найден", HttpStatus.NOT_FOUND)
         }
 
         val score = when (lesson.lessonType) {

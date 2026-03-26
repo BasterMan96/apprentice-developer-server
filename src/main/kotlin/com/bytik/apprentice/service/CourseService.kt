@@ -60,7 +60,7 @@ class CourseService(
     @Transactional(readOnly = true)
     fun getCourse(courseId: Long, userId: Long?): CourseDetailDto {
         val course = courseRepository.findById(courseId).orElseThrow {
-            ApiException("Course not found", HttpStatus.NOT_FOUND)
+            ApiException("Курс не найден", HttpStatus.NOT_FOUND)
         }
 
         val completedLessonIds = if (userId != null) {
@@ -116,15 +116,15 @@ class CourseService(
     @Transactional
     fun enroll(courseId: Long, userId: Long): EnrollmentDto {
         val user = userRepository.findById(userId).orElseThrow {
-            ApiException("User not found", HttpStatus.NOT_FOUND)
+            ApiException("Пользователь не найден", HttpStatus.NOT_FOUND)
         }
         val course = courseRepository.findById(courseId).orElseThrow {
-            ApiException("Course not found", HttpStatus.NOT_FOUND)
+            ApiException("Курс не найден", HttpStatus.NOT_FOUND)
         }
 
         val existing = userCourseEnrollmentRepository.findByUserIdAndCourseId(userId, courseId)
         if (existing != null) {
-            throw ApiException("Already enrolled in this course", HttpStatus.CONFLICT)
+            throw ApiException("Вы уже записаны на этот курс", HttpStatus.CONFLICT)
         }
 
         val enrollment = UserCourseEnrollment(user = user, course = course)
