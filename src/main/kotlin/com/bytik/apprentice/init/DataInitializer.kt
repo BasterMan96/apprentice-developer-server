@@ -89,7 +89,7 @@ class DataInitializer(
             Course(
                 title = "Python для начинающих",
                 description = "Изучи основы программирования на Python — один из самых популярных и простых языков в мире!",
-                imageUrl = "/images/python-course.png",
+                imageUrl = "",
                 difficulty = Difficulty.BEGINNER,
                 ageFrom = 11,
                 ageTo = 15,
@@ -421,7 +421,7 @@ while count <= 5:
             Course(
                 title = "Цифровая грамотность",
                 description = "Познакомься с компьютерами и цифровым миром в игровой форме!",
-                imageUrl = "/images/digital-course.png",
+                imageUrl = "",
                 difficulty = Difficulty.BEGINNER,
                 ageFrom = 7,
                 ageTo = 10,
@@ -493,7 +493,7 @@ while count <= 5:
             Course(
                 title = "Алгоритмы и логика",
                 description = "Научись мыслить как программист! Решай логические задачки и составляй алгоритмы.",
-                imageUrl = "/images/algo-course.png",
+                imageUrl = "",
                 difficulty = Difficulty.BEGINNER,
                 ageFrom = 7,
                 ageTo = 12,
@@ -781,7 +781,7 @@ print(f"{celsius}°C = {fahrenheit}°F")
             Course(
                 title = "Веб-разработка для детей",
                 description = "Создай свою первую веб-страницу! Узнай основы HTML и CSS.",
-                imageUrl = "/images/web-course.png",
+                imageUrl = "",
                 difficulty = Difficulty.INTERMEDIATE,
                 ageFrom = 12,
                 ageTo = 15,
@@ -1139,7 +1139,7 @@ h1 { color: blue; }
             Course(
                 title = "Безопасность в интернете",
                 description = "Научись безопасно пользоваться интернетом. Защити себя и свои данные!",
-                imageUrl = "/images/security-course.png",
+                imageUrl = "",
                 difficulty = Difficulty.BEGINNER,
                 ageFrom = 7,
                 ageTo = 12,
@@ -1361,7 +1361,7 @@ h1 { color: blue; }
             Course(
                 title = "Python: продвинутый уровень",
                 description = "Углубись в Python! Списки, функции, словари и работа с файлами.",
-                imageUrl = "/images/python-adv-course.png",
+                imageUrl = "",
                 difficulty = Difficulty.INTERMEDIATE,
                 ageFrom = 13,
                 ageTo = 15,
