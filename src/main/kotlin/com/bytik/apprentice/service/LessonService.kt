@@ -151,18 +151,27 @@ class LessonService(
             }
         }
 
-        val xpMultiplier = if (score == 100) 2 else 1
-        val xpEarned = lesson.xpReward * xpMultiplier
-        val bytesEarned = if (score >= 50) lesson.bytesReward else 0
-
-        val oldLevel = user.level
-        user.xp += xpEarned
-        user.bytesBalance += bytesEarned
-        val newLevel = floor(sqrt(user.xp / 100.0)).toInt() + 1
-        user.level = newLevel
-        userRepository.save(user)
-
+        // Проверить, был ли урок уже пройден
         val existing = userProgressRepository.findByUserIdAndLessonId(userId, lessonId)
+        val alreadyCompleted = existing != null && existing.status == ProgressStatus.COMPLETED
+
+        // XP и байты начисляются ТОЛЬКО при первом прохождении
+        val xpEarned: Int
+        val bytesEarned: Int
+        val oldLevel = user.level
+        if (alreadyCompleted) {
+            xpEarned = 0
+            bytesEarned = 0
+        } else {
+            val xpMultiplier = if (score == 100) 2 else 1
+            xpEarned = lesson.xpReward * xpMultiplier
+            bytesEarned = if (score >= 50) lesson.bytesReward else 0
+            user.xp += xpEarned
+            user.bytesBalance += bytesEarned
+            val newLevel = floor(sqrt(user.xp / 100.0)).toInt() + 1
+            user.level = newLevel
+            userRepository.save(user)
+        }
         if (existing != null) {
             if (score > existing.score) {
                 existing.score = score
@@ -189,7 +198,7 @@ class LessonService(
             score = score,
             xpEarned = xpEarned,
             bytesEarned = bytesEarned,
-            newLevel = if (newLevel > oldLevel) newLevel else null,
+            newLevel = if (user.level > oldLevel) user.level else null,
             achievementsUnlocked = unlockedAchievements
         )
     }
