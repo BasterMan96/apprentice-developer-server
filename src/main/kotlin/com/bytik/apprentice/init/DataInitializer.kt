@@ -161,10 +161,10 @@ print("Я учусь программировать!")
             listOf("Кавычки" to true, "Скобки" to false, "Звёздочки" to false, "Тире" to false))
 
         val m1l2 = lessonRepository.save(Lesson(module = m1, title = "Практика: первый вывод", lessonType = LessonType.PRACTICE, orderIndex = idx++, xpReward = 15, bytesReward = 8, content = "Напиши программу, которая выводит твоё имя на экран."))
-        saveCodeTask(m1l2, "Привет, мир!", "Напиши программу, которая выводит строку «Привет, Python!» на экран.", """print("Привет, Python!")""", "Привет, Python!", "Используй команду print() и не забудь про кавычки.")
+        saveCodeTask(m1l2, "Привет, мир!", "Напиши программу, которая выводит строку «Привет, Python!» на экран.", "# твой код\n", "Привет, Python!", "Используй команду print() и не забудь про кавычки.")
 
         val m1l3 = lessonRepository.save(Lesson(module = m1, title = "Практика: несколько строк", lessonType = LessonType.PRACTICE, orderIndex = idx++, xpReward = 15, bytesReward = 8, content = "Выведи несколько строк подряд."))
-        saveCodeTask(m1l3, "Несколько print()", "Выведи три строки: своё имя, возраст и любимый цвет.", "print(\"Аня\")\nprint(\"10\")\nprint(\"синий\")", "Аня\n10\nсиний", "Каждый print() выводит текст на новой строке.")
+        saveCodeTask(m1l3, "Несколько print()", "Выведи три строки: своё имя, возраст и любимый цвет.", "# твой код\n", "Аня\n10\nсиний", "Каждый print() выводит текст на новой строке.")
 
         val m1l4 = lessonRepository.save(Lesson(module = m1, title = "Итоговый квиз модуля 1", lessonType = LessonType.QUIZ, orderIndex = idx++, xpReward = 20, bytesReward = 10, content = "Проверь знания по первому модулю!"))
         saveQuiz(m1l4, "Какая команда выводит текст?", listOf("print()" to true, "input()" to false, "show()" to false, "display()" to false))
@@ -185,7 +185,7 @@ print("Я учусь программировать!")
 
 Выполни задание и получи +15 байтиков!
         """.trimIndent()))
-        saveCodeTask(m1l5, "Говорящий робот", "Выведи три строки от лица робота Байта.", "print(\"Привет! Я робот Байт.\")\nprint(\"Я умею программировать на Python.\")\nprint(\"Давай учиться вместе!\")", "Привет! Я робот Байт.\nЯ умею программировать на Python.\nДавай учиться вместе!", "Используй три команды print().")
+        saveCodeTask(m1l5, "Говорящий робот", "Выведи три строки от лица робота Байта.", "# твой код\n", "Привет! Я робот Байт.\nЯ умею программировать на Python.\nДавай учиться вместе!", "Используй три команды print().")
 
         // ── Модуль 2: Переменные и типы данных ─────────────────────
         val m2 = moduleRepository.save(Module(course = course, title = "Переменные и типы данных", description = "str, int, float, bool — и f-строки для вставки значений", orderIndex = 2))
@@ -245,10 +245,10 @@ print(score)  # 10
         saveQuiz(m2l1, "Какой тип у значения True?", listOf("bool" to true, "str" to false, "int" to false, "float" to false))
 
         val m2l2 = lessonRepository.save(Lesson(module = m2, title = "Практика: переменные", lessonType = LessonType.PRACTICE, orderIndex = idx++, xpReward = 15, bytesReward = 8, content = "Создай переменные и выведи их."))
-        saveCodeTask(m2l2, "Моя визитка", "Создай переменные name и age, присвой им своё имя и возраст, затем выведи f-строку.", "name = \"Аня\"\nage = 10\nprint(f\"Меня зовут {name}, мне {age} лет.\")", "Меня зовут Аня, мне 10 лет.", "Используй f-строку с фигурными скобками.")
+        saveCodeTask(m2l2, "Моя визитка", "Создай переменные name и age, присвой им своё имя и возраст, затем выведи f-строку.", "# твой код\n", "Меня зовут Аня, мне 10 лет.", "Используй f-строку с фигурными скобками.")
 
         val m2l3 = lessonRepository.save(Lesson(module = m2, title = "Практика: арифметика", lessonType = LessonType.PRACTICE, orderIndex = idx++, xpReward = 15, bytesReward = 8, content = "Используй переменные для вычислений."))
-        saveCodeTask(m2l3, "Сумма переменных", "Создай переменные a=7 и b=3, вычисли их сумму и выведи результат через f-строку.", "a = 7\nb = 3\nresult = a + b\nprint(f\"{a} + {b} = {result}\")", "7 + 3 = 10", "Используй переменную result для хранения суммы.")
+        saveCodeTask(m2l3, "Сумма переменных", "Создай переменные a=7 и b=3, вычисли их сумму и выведи результат через f-строку.", "# твой код\n", "7 + 3 = 10", "Используй переменную result для хранения суммы.")
 
         val m2l4 = lessonRepository.save(Lesson(module = m2, title = "Итоговый квиз модуля 2", lessonType = LessonType.QUIZ, orderIndex = idx++, xpReward = 20, bytesReward = 10, content = "Проверь знания по переменным и типам данных!"))
         saveQuiz(m2l4, "Как создать переменную x со значением 5?", listOf("x = 5" to true, "5 = x" to false, "var x = 5" to false, "int x = 5" to false))
@@ -274,7 +274,7 @@ print(score)  # 10
 HP: <очки здоровья>
 ```
         """.trimIndent()))
-        saveCodeTask(m2l5, "Профиль героя", "Создай переменные hero_name, level, hp и выведи профиль.", "hero_name = \"Дракон\"\nlevel = 1\nhp = 100\nprint(f\"Герой: {hero_name}\")\nprint(f\"Уровень: {level}\")\nprint(f\"HP: {hp}\")", "Герой: Дракон\nУровень: 1\nHP: 100", "Используй f-строки для каждой строки вывода.")
+        saveCodeTask(m2l5, "Профиль героя", "Создай переменные hero_name, level, hp и выведи профиль.", "# твой код\n", "Герой: Дракон\nУровень: 1\nHP: 100", "Используй f-строки для каждой строки вывода.")
 
         // ── Модуль 3: Условные операторы ────────────────────────────
         val m3 = moduleRepository.save(Module(course = course, title = "Условные операторы", description = "if, elif, else — принятие решений в программе", orderIndex = 3))
@@ -353,10 +353,10 @@ if x > 10 and x < 20:
         saveQuiz(m3l1, "Сколько блоков elif можно использовать?", listOf("Сколько угодно" to true, "Только один" to false, "Только два" to false, "Ни одного" to false))
 
         val m3l2 = lessonRepository.save(Lesson(module = m3, title = "Практика: чётное или нечётное", lessonType = LessonType.PRACTICE, orderIndex = idx++, xpReward = 15, bytesReward = 8, content = "Определи, чётное число или нечётное."))
-        saveCodeTask(m3l2, "Чётное/нечётное", "Создай переменную num=7. Если num % 2 == 0 — выведи «Чётное», иначе — «Нечётное».", "num = 7\nif num % 2 == 0:\n    print(\"Чётное\")\nelse:\n    print(\"Нечётное\")", "Нечётное", "Используй оператор % для получения остатка от деления.")
+        saveCodeTask(m3l2, "Чётное/нечётное", "Создай переменную num=7. Если num % 2 == 0 — выведи «Чётное», иначе — «Нечётное».", "# твой код\n", "Нечётное", "Используй оператор % для получения остатка от деления.")
 
         val m3l3 = lessonRepository.save(Lesson(module = m3, title = "Практика: оценка по баллам", lessonType = LessonType.PRACTICE, orderIndex = idx++, xpReward = 15, bytesReward = 8, content = "Определи оценку по количеству баллов."))
-        saveCodeTask(m3l3, "Оценка по баллам", "score=80. Выведи «Отлично» если >=90, «Хорошо» если >=70, «Плохо» иначе.", "score = 80\nif score >= 90:\n    print(\"Отлично\")\nelif score >= 70:\n    print(\"Хорошо\")\nelse:\n    print(\"Плохо\")", "Хорошо", "Используй if-elif-else.")
+        saveCodeTask(m3l3, "Оценка по баллам", "score=80. Выведи «Отлично» если >=90, «Хорошо» если >=70, «Плохо» иначе.", "# твой код\n", "Хорошо", "Используй if-elif-else.")
 
         val m3l4 = lessonRepository.save(Lesson(module = m3, title = "Итоговый квиз модуля 3", lessonType = LessonType.QUIZ, orderIndex = idx++, xpReward = 20, bytesReward = 10, content = "Проверь знания об условных операторах!"))
         saveQuiz(m3l4, "Что ставится в конце строки с if?", listOf("Двоеточие :" to true, "Точка с запятой ;" to false, "Скобка )" to false, "Ничего" to false))
@@ -377,7 +377,7 @@ if x > 10 and x < 20:
 
 Создай переменную `visitor_age = 14` и напиши условия.
         """.trimIndent()))
-        saveCodeTask(m3l5, "Страж ворот", "Напиши программу стража ворот для visitor_age=14.", "visitor_age = 14\nif visitor_age >= 18:\n    print(\"Добро пожаловать, взрослый путник!\")\nelif visitor_age >= 12:\n    print(\"Привет, юный герой! Проходи.\")\nelse:\n    print(\"Малыш, тебе ещё рано. Возвращайся через несколько лет!\")", "Привет, юный герой! Проходи.", "Используй if-elif-else с правильными условиями.")
+        saveCodeTask(m3l5, "Страж ворот", "Напиши программу стража ворот для visitor_age=14.", "# твой код\n", "Привет, юный герой! Проходи.", "Используй if-elif-else с правильными условиями.")
 
         // ── Модуль 4: Циклы ──────────────────────────────────────────
         val m4 = moduleRepository.save(Module(course = course, title = "Циклы", description = "for, while, range — повторяем действия в программе", orderIndex = 4))
@@ -458,10 +458,10 @@ print(f"Сумма: {total}")  # Сумма: 15
         saveQuiz(m4l1, "Что выведет: for i in range(2,5): print(i)?", listOf("2, 3, 4" to true, "2, 3, 4, 5" to false, "0, 1, 2" to false, "2, 4" to false))
 
         val m4l2 = lessonRepository.save(Lesson(module = m4, title = "Практика: таблица умножения", lessonType = LessonType.PRACTICE, orderIndex = idx++, xpReward = 15, bytesReward = 8, content = "Выведи таблицу умножения на 3."))
-        saveCodeTask(m4l2, "Таблица умножения", "Используя цикл for, выведи таблицу умножения числа 3 от 1 до 5.", "for i in range(1, 6):\n    print(f\"3 x {i} = {3*i}\")", "3 x 1 = 3\n3 x 2 = 6\n3 x 3 = 9\n3 x 4 = 12\n3 x 5 = 15", "Используй f-строку внутри цикла for.")
+        saveCodeTask(m4l2, "Таблица умножения", "Используя цикл for, выведи таблицу умножения числа 3 от 1 до 5.", "# твой код\n", "3 x 1 = 3\n3 x 2 = 6\n3 x 3 = 9\n3 x 4 = 12\n3 x 5 = 15", "Используй f-строку внутри цикла for.")
 
         val m4l3 = lessonRepository.save(Lesson(module = m4, title = "Практика: сумма чисел", lessonType = LessonType.PRACTICE, orderIndex = idx++, xpReward = 15, bytesReward = 8, content = "Подсчитай сумму чисел от 1 до 10."))
-        saveCodeTask(m4l3, "Сумма 1 до 10", "Используй цикл for и переменную total, чтобы подсчитать сумму чисел от 1 до 10. Выведи результат.", "total = 0\nfor i in range(1, 11):\n    total = total + i\nprint(total)", "55", "Начни с total=0 и прибавляй i на каждой итерации.")
+        saveCodeTask(m4l3, "Сумма 1 до 10", "Используй цикл for и переменную total, чтобы подсчитать сумму чисел от 1 до 10. Выведи результат.", "# твой код\n", "55", "Начни с total=0 и прибавляй i на каждой итерации.")
 
         val m4l4 = lessonRepository.save(Lesson(module = m4, title = "Итоговый квиз модуля 4", lessonType = LessonType.QUIZ, orderIndex = idx++, xpReward = 20, bytesReward = 10, content = "Проверь знания о циклах!"))
         saveQuiz(m4l4, "Чем отличается for от while?", listOf("for — для известного числа повторений, while — для условия" to true, "Они одинаковы" to false, "while быстрее" to false, "for только для строк" to false))
@@ -505,7 +505,7 @@ print(f"Сумма: {total}")  # Сумма: 15
 
 После завершения ты получишь сертификат о прохождении курса! 🏆
         """.trimIndent()))
-        saveCodeTask(m5l2, "Калькулятор", "Создай калькулятор с переменными a=10 и b=3, выведи результаты 4 операций.", "a = 10\nb = 3\nprint(f\"{a} + {b} = {a+b}\")\nprint(f\"{a} - {b} = {a-b}\")\nprint(f\"{a} * {b} = {a*b}\")\nprint(f\"{a} / {b} = {a/b}\")", "10 + 3 = 13\n10 - 3 = 7\n10 * 3 = 30\n10 / 3 = 3.3333333333333335", "Используй f-строки и операторы +, -, *, /")
+        saveCodeTask(m5l2, "Калькулятор", "Создай калькулятор с переменными a=10 и b=3, выведи результаты 4 операций.", "# твой код\n", "10 + 3 = 13\n10 - 3 = 7\n10 * 3 = 30\n10 / 3 = 3.3333333333333335", "Используй f-строки и операторы +, -, *, /")
 
         return course
     }
@@ -597,10 +597,10 @@ print(numbers[3:])    # [3, 4, 5]
         saveQuiz(m1l1, "Что делает pop()?", listOf("Удаляет и возвращает элемент" to true, "Добавляет элемент" to false, "Сортирует список" to false, "Очищает список" to false))
 
         val m1l2 = lessonRepository.save(Lesson(module = m1, title = "Практика: работа со списком", lessonType = LessonType.PRACTICE, orderIndex = idx++, xpReward = 15, bytesReward = 8, content = "Создай список и выполни операции."))
-        saveCodeTask(m1l2, "Список фруктов", "Создай список из 3 фруктов. Добавь ещё один через append. Выведи первый и последний элемент.", "fruits = [\"яблоко\", \"банан\", \"апельсин\"]\nfruits.append(\"виноград\")\nprint(fruits[0])\nprint(fruits[-1])", "яблоко\nвиноград", "Используй append() и индексы [0] и [-1].")
+        saveCodeTask(m1l2, "Список фруктов", "Создай список из 3 фруктов. Добавь ещё один через append. Выведи первый и последний элемент.", "# твой код\n", "яблоко\nвиноград", "Используй append() и индексы [0] и [-1].")
 
         val m1l3 = lessonRepository.save(Lesson(module = m1, title = "Практика: сумма элементов", lessonType = LessonType.PRACTICE, orderIndex = idx++, xpReward = 15, bytesReward = 8, content = "Подсчитай сумму всех элементов списка."))
-        saveCodeTask(m1l3, "Сумма списка", "Создай список numbers=[1,2,3,4,5]. Подсчитай сумму перебором и выведи результат.", "numbers = [1, 2, 3, 4, 5]\ntotal = 0\nfor n in numbers:\n    total += n\nprint(total)", "15", "Используй цикл for и переменную-аккумулятор.")
+        saveCodeTask(m1l3, "Сумма списка", "Создай список numbers=[1,2,3,4,5]. Подсчитай сумму перебором и выведи результат.", "# твой код\n", "15", "Используй цикл for и переменную-аккумулятор.")
 
         val m1l4 = lessonRepository.save(Lesson(module = m1, title = "Итоговый квиз модуля 1", lessonType = LessonType.QUIZ, orderIndex = idx++, xpReward = 20, bytesReward = 10, content = "Проверь знания о списках!"))
         saveQuiz(m1l4, "Как создать пустой список?", listOf("[]" to true, "{}" to false, "()" to false, "list" to false))
@@ -630,7 +630,7 @@ print(numbers[3:])    # [3, 4, 5]
 Всего предметов: 4
 ```
         """.trimIndent()))
-        saveCodeTask(m1l5, "Инвентарь героя", "Создай инвентарь, добавь предмет, выведи с нумерацией и итогом.", "inventory = [\"меч\", \"щит\", \"зелье\"]\ninventory.append(\"магический посох\")\nfor i, item in enumerate(inventory, 1):\n    print(f\"{i}: {item}\")\nprint(f\"Всего предметов: {len(inventory)}\")", "1: меч\n2: щит\n3: зелье\n4: магический посох\nВсего предметов: 4", "Используй enumerate(inventory, 1) для нумерации с 1.")
+        saveCodeTask(m1l5, "Инвентарь героя", "Создай инвентарь, добавь предмет, выведи с нумерацией и итогом.", "# твой код\n", "1: меч\n2: щит\n3: зелье\n4: магический посох\nВсего предметов: 4", "Используй enumerate(inventory, 1) для нумерации с 1.")
 
         // ── Модуль 2: Функции ────────────────────────────────────────
         val m2 = moduleRepository.save(Module(course = course, title = "Функции", description = "def, return, аргументы — создаём переиспользуемые блоки кода", orderIndex = 2))
@@ -702,10 +702,10 @@ greet("Боб", "Здравствуй")  # Здравствуй, Боб!
         saveQuiz(m2l1, "Что означает DRY?", listOf("Don't Repeat Yourself" to true, "Do Run Yourself" to false, "Don't Run Yet" to false, "Do Repeat Yesterday" to false))
 
         val m2l2 = lessonRepository.save(Lesson(module = m2, title = "Практика: функция приветствия", lessonType = LessonType.PRACTICE, orderIndex = idx++, xpReward = 15, bytesReward = 8, content = "Напиши функцию с аргументом."))
-        saveCodeTask(m2l2, "Функция приветствия", "Напиши функцию greet(name), которая выводит «Привет, <name>!». Вызови её с именем «Питон».", "def greet(name):\n    print(f\"Привет, {name}!\")\n\ngreet(\"Питон\")", "Привет, Питон!", "Используй f-строку внутри функции.")
+        saveCodeTask(m2l2, "Функция приветствия", "Напиши функцию greet(name), которая выводит «Привет, <name>!». Вызови её с именем «Питон».", "# твой код\n", "Привет, Питон!", "Используй f-строку внутри функции.")
 
         val m2l3 = lessonRepository.save(Lesson(module = m2, title = "Практика: функция вычисления", lessonType = LessonType.PRACTICE, orderIndex = idx++, xpReward = 15, bytesReward = 8, content = "Напиши функцию с return."))
-        saveCodeTask(m2l3, "Функция максимума", "Напиши функцию max_of_two(a, b), которая возвращает большее из двух чисел. Выведи max_of_two(7, 3).", "def max_of_two(a, b):\n    if a > b:\n        return a\n    else:\n        return b\n\nprint(max_of_two(7, 3))", "7", "Используй if-else и return внутри функции.")
+        saveCodeTask(m2l3, "Функция максимума", "Напиши функцию max_of_two(a, b), которая возвращает большее из двух чисел. Выведи max_of_two(7, 3).", "# твой код\n", "7", "Используй if-else и return внутри функции.")
 
         val m2l4 = lessonRepository.save(Lesson(module = m2, title = "Итоговый квиз модуля 2", lessonType = LessonType.QUIZ, orderIndex = idx++, xpReward = 20, bytesReward = 10, content = "Проверь знания о функциях!"))
         saveQuiz(m2l4, "Как вызвать функцию foo()?", listOf("foo()" to true, "call foo()" to false, "run foo" to false, "invoke foo" to false))
@@ -726,7 +726,7 @@ greet("Боб", "Здравствуй")  # Здравствуй, Боб!
 
 Вызови все три функции с аргументами: fire_ball(50), heal(30), shield()
         """.trimIndent()))
-        saveCodeTask(m2l5, "Магические заклинания", "Напиши три функции заклинаний и вызови их.", "def fire_ball(damage):\n    print(f\"Огненный шар наносит {damage} урона!\")\n\ndef heal(hp):\n    print(f\"Исцеление восстанавливает {hp} HP!\")\n\ndef shield():\n    print(\"Щит активирован!\")\n\nfire_ball(50)\nheal(30)\nshield()", "Огненный шар наносит 50 урона!\nИсцеление восстанавливает 30 HP!\nЩит активирован!", "Объяви функции через def, используй f-строки с аргументами.")
+        saveCodeTask(m2l5, "Магические заклинания", "Напиши три функции заклинаний и вызови их.", "# твой код\n", "Огненный шар наносит 50 урона!\nИсцеление восстанавливает 30 HP!\nЩит активирован!", "Объяви функции через def, используй f-строки с аргументами.")
 
         // ── Модуль 3: Словари ────────────────────────────────────────
         val m3 = moduleRepository.save(Module(course = course, title = "Словари", description = "Ключ-значение, перебор словаря — мощная структура данных", orderIndex = 3))
@@ -808,10 +808,10 @@ print(counter)  # {'яблоко': 2, 'банан': 1}
         saveQuiz(m3l1, "Как перебрать пары ключ-значение?", listOf("for k, v in dict.items():" to true, "for k in dict.keys():" to false, "for v in dict.values():" to false, "for k, v in dict:" to false))
 
         val m3l2 = lessonRepository.save(Lesson(module = m3, title = "Практика: профиль пользователя", lessonType = LessonType.PRACTICE, orderIndex = idx++, xpReward = 15, bytesReward = 8, content = "Создай словарь и выведи информацию."))
-        saveCodeTask(m3l2, "Профиль пользователя", "Создай словарь user с ключами name, age, city. Выведи все пары через items().", "user = {\"name\": \"Аня\", \"age\": 13, \"city\": \"Москва\"}\nfor key, value in user.items():\n    print(f\"{key}: {value}\")", "name: Аня\nage: 13\ncity: Москва", "Используй цикл for с .items().")
+        saveCodeTask(m3l2, "Профиль пользователя", "Создай словарь user с ключами name, age, city. Выведи все пары через items().", "# твой код\n", "name: Аня\nage: 13\ncity: Москва", "Используй цикл for с .items().")
 
         val m3l3 = lessonRepository.save(Lesson(module = m3, title = "Практика: счётчик букв", lessonType = LessonType.PRACTICE, orderIndex = idx++, xpReward = 15, bytesReward = 8, content = "Подсчитай сколько раз встречается каждая буква."))
-        saveCodeTask(m3l3, "Счётчик букв", "Для строки word=\"python\" посчитай сколько раз встречается каждая буква и выведи словарь.", "word = \"python\"\ncounter = {}\nfor ch in word:\n    if ch in counter:\n        counter[ch] += 1\n    else:\n        counter[ch] = 1\nprint(counter)", "{'p': 1, 'y': 1, 't': 1, 'h': 1, 'o': 1, 'n': 1}", "Используй словарь как счётчик.")
+        saveCodeTask(m3l3, "Счётчик букв", "Для строки word=\"python\" посчитай сколько раз встречается каждая буква и выведи словарь.", "# твой код\n", "{'p': 1, 'y': 1, 't': 1, 'h': 1, 'o': 1, 'n': 1}", "Используй словарь как счётчик.")
 
         val m3l4 = lessonRepository.save(Lesson(module = m3, title = "Итоговый квиз модуля 3", lessonType = LessonType.QUIZ, orderIndex = idx++, xpReward = 20, bytesReward = 10, content = "Проверь знания о словарях!"))
         saveQuiz(m3l4, "Могут ли ключи словаря повторяться?", listOf("Нет, ключи уникальны" to true, "Да, могут" to false, "Только числа могут" to false, "Только строки не могут" to false))
@@ -862,7 +862,7 @@ HP: 120
 HP: 80
 ```
         """.trimIndent()))
-        saveCodeTask(m4l2, "База данных героев", "Создай функцию show_hero и список из двух героев.", "def show_hero(hero):\n    print(\"=== Герой ===\")\n    print(f\"Имя: {hero['name']}\")\n    print(f\"Класс: {hero['class']}\")\n    print(f\"Уровень: {hero['level']}\")\n    print(f\"HP: {hero['hp']}\")\n\nheroes = [\n    {\"name\": \"Артур\", \"class\": \"Воин\", \"level\": 5, \"hp\": 120},\n    {\"name\": \"Мерлин\", \"class\": \"Маг\", \"level\": 7, \"hp\": 80}\n]\n\nfor hero in heroes:\n    show_hero(hero)", "=== Герой ===\nИмя: Артур\nКласс: Воин\nУровень: 5\nHP: 120\n=== Герой ===\nИмя: Мерлин\nКласс: Маг\nУровень: 7\nHP: 80", "Используй функцию, список словарей и цикл for.")
+        saveCodeTask(m4l2, "База данных героев", "Создай функцию show_hero и список из двух героев.", "# твой код\n", "=== Герой ===\nИмя: Артур\nКласс: Воин\nУровень: 5\nHP: 120\n=== Герой ===\nИмя: Мерлин\nКласс: Маг\nУровень: 7\nHP: 80", "Используй функцию, список словарей и цикл for.")
     }
 
     // ─────────────────────────────────────────────────────────────
